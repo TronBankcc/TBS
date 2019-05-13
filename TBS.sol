@@ -445,7 +445,7 @@ contract TBS is Managable {
             //new user
         }
         uint256 planCount = uid2Investor[uid].planCount;
-        require(planCount <= 200,"planCount is too bigger");
+        require(planCount < 200,"planCount is too bigger");
         Objects.Investor storage investor = uid2Investor[uid];
         investor.plans[planCount].planId = _planId;
         investor.plans[planCount].investmentDate = block.timestamp;
@@ -547,6 +547,11 @@ contract TBS is Managable {
     }
 
     function reinvest(uint256 _planId) public {
+        uint256 uid = address2UID[msg.sender];
+        if (uid != 0) {
+            uint256 planCount = uid2Investor[uid].planCount;
+            require(planCount < 200,"planCount is too bigger");
+        }
         uint256 withdrawalAmount = _withdraw(false);
         require(address(this).balance >= withdrawalAmount);
         if (withdrawalAmount >= 0) {

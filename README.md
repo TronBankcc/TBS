@@ -1,5 +1,5 @@
 contractAddress:
 TBS:
-    (base58) TEi3924bvgwSkip5DjaLApXrGpgNqv1bT5
-    (hex) 4133fa280eeaf38b5d442b63cec339abf01e2f00a5
+    (base58) TD4CfG9pJBEtGYdhNubu75ukoWaELWBUi6
+    (hex) 4121da2c179b29f72a1bbda444495e08c621962bf5
 
